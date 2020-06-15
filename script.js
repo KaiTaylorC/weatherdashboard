@@ -11,7 +11,7 @@ function getSearchMethod(searchTerm) {
 
 function searchWeather(searchTerm) {
     getSearchMethod(searchTerm);
-    fetch(`http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`).then(result => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`).then(result => {
         return result.json();
     }).then(result => {
         init(result);
@@ -49,7 +49,7 @@ function init(resultFromServer) {
     let cityHeader = document.getElementById('cityHeader');
     let weatherIcon = document.getElementById('documentIconImg');
 
-    weatherIcon.src = 'http://openweathermap.org/img/wn/' + resultFromServer.weather[0].icon + '.png';
+    weatherIcon.src = 'https://openweathermap.org/img/wn/' + resultFromServer.weather[0].icon + '.png';
 
     let resultDescription = resultFromServer.weather[0].description;
     weatherDescriptionHeader.innerText = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
